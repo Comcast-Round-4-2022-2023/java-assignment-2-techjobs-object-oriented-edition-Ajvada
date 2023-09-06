@@ -64,9 +64,9 @@ public class Job {
         this.employer = employer;
     }
 
-    public String getName() {
-        return name;
-    }
+//    public String getName() {
+//        return name;
+//    }
 
     public void setName(String name) {
         this.name = name;
@@ -90,5 +90,24 @@ public class Job {
     }
 // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
+
+    public String getName() {
+        if (name == null || name.isEmpty()) {
+            return "Data not available";
+        }
+        return name;
+    }
+
+    @Override
+public String toString() {
+    return "\n" +
+            "ID: " + id +
+            "\nName: " + name +
+            "\nEmployer: " + employer.getValue() +
+            "\nLocation: " + location.getValue() +
+            "\nPosition Type: " + positionType.getValue() +
+            "\nCore Competency: " + coreCompetency.getValue() +
+            "\n";
+}
 
 }

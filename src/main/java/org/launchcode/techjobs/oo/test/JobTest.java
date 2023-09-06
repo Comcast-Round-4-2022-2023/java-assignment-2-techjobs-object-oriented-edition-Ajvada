@@ -54,4 +54,29 @@ public class JobTest extends Job {
         assertEquals("\nID: " + testJob5.getId() + "\nName: Product tester\nEmployer: Data not available\nLocation: Desert\nPosition Type: Data not available\nCore Competency: Data not available\n" , job);
 
     }
+    @Test
+    public void testJobsForEquality() {
+        Job testJob3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job testJob4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertFalse(testJob3.equals(testJob4));
+
+    }
+    @Test
+    public void testJobConstructorSetsAllFields() {
+        Job testJob3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertTrue(testJob3.getName() instanceof String);
+        assertTrue(testJob3.getEmployer() instanceof Employer);
+        assertTrue(testJob3.getLocation() instanceof Location);
+        assertTrue(testJob3.getPositionType() instanceof PositionType);
+        assertTrue(testJob3.getCoreCompetency() instanceof CoreCompetency);
+
+
+        assertEquals("Product tester", testJob3.getName());
+        assertEquals("ACME", testJob3.getEmployer().getValue());
+        assertEquals("Desert", testJob3.getLocation().getValue());
+        assertEquals("Quality control", testJob3.getPositionType().getValue());
+        assertEquals("Persistence", testJob3.getCoreCompetency().getValue());
+    }
+
 }

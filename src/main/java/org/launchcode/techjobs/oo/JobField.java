@@ -39,10 +39,15 @@ public class JobField {
         return id;
     }
 
+//    public String getValue() {
+//        return value;
+//    }
     public String getValue() {
+        if (value == null || value.isEmpty()) {
+            return "Data not available";
+        }
         return value;
     }
-
     public void setValue(String value) {
         this.value = value;
     }
